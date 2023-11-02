@@ -1,0 +1,32 @@
+:root {
+  --teal-darkest: #042f2e;
+  --teal-darker: #134e4a;
+  --teal-dark: #0f766e;
+  --teal-regular: #14b8a6;
+  --teal-light: #5eead4;
+  --teal-lighter: #99f6e4;
+  --teal-lightest: #f0fdfa;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+.root {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 'header header' 'nav main';
+  height: 100%;
+  background: var(--teal-darkest);
+}
