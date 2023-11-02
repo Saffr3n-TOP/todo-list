@@ -27,6 +27,10 @@ module.exports = ({ isDev }) => {
           use: [isDev ? 'style-loader' : CssExtractPlugin.loader, 'css-loader']
         },
         {
+          test: /\.ttf$/i,
+          type: 'asset/resource'
+        },
+        {
           test: /\.svg$/i,
           type: 'asset/resource'
         }

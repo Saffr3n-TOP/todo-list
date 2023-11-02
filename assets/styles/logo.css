@@ -1,0 +1,17 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding-right: 0.3rem;
+  text-decoration: none;
+}
+
+.logo__icon {
+  width: 4rem;
+}
+
+.logo__text {
+  color: var(--teal-regular);
+  font-family: 'Playpen Sans';
+  font-size: 2.5rem;
+}
