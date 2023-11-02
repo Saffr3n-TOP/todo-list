@@ -6,7 +6,7 @@
  * @prop {string} title
  * @prop {string} description
  * @prop {string} created
- * @prop {Todo[]} todos
+ * @prop {{ [id: string]: Todo }} todos
  * @memberof Types
  */
 

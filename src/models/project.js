@@ -11,6 +11,6 @@ export default function Project(title, description) {
     title,
     description,
     created: new Date().toISOString().slice(0, 10),
-    todos: []
+    todos: {}
   };
 }
