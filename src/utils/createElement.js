@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @param {'header' | 'nav' | 'main' | 'span' | 'a' | 'img'} tagName
+ * @param {'header' | 'nav' | 'main' | 'h1' | 'span' | 'a' | 'img' | 'ul' | 'li'} tagName
  * @param {{
  *   children?: HTMLElement[],
  *   attributes?: { key: string, value: string }[],
@@ -9,7 +9,8 @@
  *   textContent?: string,
  *   href?: string,
  *   alt?: string,
- *   src?: string
+ *   src?: string,
+ *   onclick?: (e: MouseEvent) => void
  * }} opts
  */
 export default function createElement(tagName, opts) {

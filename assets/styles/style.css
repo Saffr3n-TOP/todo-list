@@ -1,3 +1,5 @@
+@import url('./heading.css');
+
 @font-face {
   font-family: 'Playpen Sans';
   src: url('../PlaypenSans.ttf') format('truetype') tech('variations'),
