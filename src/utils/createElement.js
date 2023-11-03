@@ -1,12 +1,13 @@
 // @ts-check
 
 /**
- * @param {'header' | 'nav' | 'main' | 'h1' | 'span' | 'a' | 'img' | 'ul' | 'li'} tagName
+ * @param {'header' | 'nav' | 'main' | 'div' | 'span' | 'h1' | 'h2' | 'p' | 'a' | 'button' | 'img' | 'ul' | 'li'} tagName
  * @param {{
  *   children?: HTMLElement[],
  *   attributes?: { key: string, value: string }[],
  *   className?: string,
  *   textContent?: string,
+ *   type?: 'button' | 'submit',
  *   href?: string,
  *   alt?: string,
  *   src?: string,
@@ -14,20 +15,20 @@
  * }} opts
  */
 export default function createElement(tagName, opts) {
-  const element = document.createElement(tagName);
+  const { children, attributes } = opts;
 
-  if (opts.children) {
-    element.append(...opts.children);
-    delete opts.children;
+  delete opts.children;
+  delete opts.attributes;
+
+  const element = Object.assign(document.createElement(tagName), opts);
+
+  if (children) {
+    element.append(...children);
   }
 
-  if (opts.attributes) {
-    opts.attributes.forEach((attr) =>
-      element.setAttribute(attr.key, attr.value)
-    );
-
-    delete opts.attributes;
+  if (attributes) {
+    attributes.forEach((attr) => element.setAttribute(attr.key, attr.value));
   }
 
-  return Object.assign(element, opts);
+  return element;
 }
