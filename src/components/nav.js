@@ -10,7 +10,7 @@ export default function Nav() {
 
   const todosLink = createElement('a', {
     href: './todos',
-    className: 'nav__link nav__link_active',
+    className: 'nav__link nav__link_primary nav__link_active',
     textContent: 'Todos',
     onclick: navLinkClickHandler
   });
@@ -45,24 +45,24 @@ export default function Nav() {
   });
 
   const todosItem = createElement('li', {
-    className: 'nav__item',
+    className: 'nav__item nav__item_primary',
     children: [todosLink, todosSubmenu]
   });
 
   const projectsLink = createElement('a', {
     href: './projects',
-    className: 'nav__link',
+    className: 'nav__link nav__link_primary',
     textContent: 'Projects',
     onclick: navLinkClickHandler
   });
 
   const projectsItem = createElement('li', {
-    className: 'nav__item',
+    className: 'nav__item nav__item_primary',
     children: [projectsLink]
   });
 
   const menu = createElement('ul', {
-    className: 'nav__menu',
+    className: 'nav__menu nav__menu_primary',
     children: [todosItem, projectsItem]
   });
 

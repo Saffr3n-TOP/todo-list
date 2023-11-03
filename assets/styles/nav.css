@@ -13,8 +13,11 @@
 
 .nav__menu {
   display: grid;
-  gap: 1.2rem;
   list-style: none;
+}
+
+.nav__menu_primary {
+  gap: 1.2rem;
 }
 
 .nav__menu_secondary {
@@ -34,7 +37,6 @@
   padding: 0.2rem 1rem;
   border-radius: 1rem;
   color: var(--teal-lightest);
-  font-size: 1.5rem;
   text-decoration: none;
   transition: background-color 0.2s linear, color 0.2s linear;
 }
@@ -50,6 +52,10 @@
   opacity: 0;
   transform: scale(0);
   transition: opacity 0.2s linear, transform 0.2s linear;
+}
+
+.nav__link_primary {
+  font-size: 1.5rem;
 }
 
 .nav__link_secondary {
