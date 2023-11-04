@@ -1,0 +1,20 @@
+.input {
+  min-width: 200px;
+  min-height: calc(1.4rem + 2px);
+  padding: 0.1rem 0.3rem;
+  border: 1px solid var(--teal-dark);
+  border-radius: 4px;
+  outline: 2px solid transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.input:hover {
+  border-color: var(--teal-darkest);
+}
+
+.input:focus {
+  outline-color: var(--teal-regular);
+}
