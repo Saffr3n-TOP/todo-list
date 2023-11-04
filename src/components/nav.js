@@ -1,5 +1,6 @@
 // @ts-check
 import createElement from '../utils/createElement';
+import handleLinkClick from '../utils/handleLinkClick';
 
 import '../../assets/styles/nav.css';
 
@@ -16,7 +17,7 @@ export default function Nav() {
       href: './todos',
       className: 'nav__link nav__link_primary nav__link_active',
       textContent: 'Todos',
-      onclick: navLinkClickHandler
+      onclick: handleLinkClick
     })
   );
 
@@ -25,7 +26,7 @@ export default function Nav() {
       href: './todos/today',
       className: 'nav__link nav__link_secondary',
       textContent: 'Today',
-      onclick: navLinkClickHandler
+      onclick: handleLinkClick
     })
   );
 
@@ -41,7 +42,7 @@ export default function Nav() {
       href: './todos/week',
       className: 'nav__link nav__link_secondary',
       textContent: 'Week',
-      onclick: navLinkClickHandler
+      onclick: handleLinkClick
     })
   );
 
@@ -71,7 +72,7 @@ export default function Nav() {
       href: './projects',
       className: 'nav__link nav__link_primary',
       textContent: 'Projects',
-      onclick: navLinkClickHandler
+      onclick: handleLinkClick
     })
   );
 
@@ -97,16 +98,4 @@ export default function Nav() {
   );
 
   return nav;
-}
-
-/** @param {MouseEvent} e */
-function navLinkClickHandler(e) {
-  e.preventDefault();
-
-  const activeLinkClass = 'nav__link_active';
-  const currActiveLink = document.querySelector(`.${activeLinkClass}`);
-  const nextActiveLink = /** @type {HTMLAnchorElement} */ (e.currentTarget);
-
-  currActiveLink?.classList.remove(activeLinkClass);
-  nextActiveLink.classList.add(activeLinkClass);
 }
