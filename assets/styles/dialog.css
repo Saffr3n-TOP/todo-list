@@ -1,0 +1,39 @@
+.dialog {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000044;
+  backdrop-filter: blur(4px);
+  color: var(--teal-darkest);
+  z-index: 1;
+  transition: background-color 0.2s linear, backdrop-filter 0.2s linear;
+}
+
+.dialog_transition {
+  background: #00000000;
+  backdrop-filter: blur(0);
+}
+
+.dialog__content {
+  position: relative;
+  padding: 1rem;
+  border: 2px solid var(--teal-darkest);
+  box-shadow: 4px 4px 4px 0 var(--teal-darkest);
+  background: var(--teal-lightest);
+  transition: transform 0.2s ease-in-out;
+}
+
+.dialog_transition .dialog__content {
+  transform: scale(0);
+}
+
+.dialog__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

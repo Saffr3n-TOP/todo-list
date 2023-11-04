@@ -1,0 +1,46 @@
+.button {
+  border: none;
+  cursor: pointer;
+}
+
+.button__icon {
+  display: block;
+  width: 32px;
+}
+
+.button_generic {
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
+  border-radius: 16px;
+  background: var(--teal-darker);
+  color: var(--teal-lightest);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  transition: background-color 0.2s linear;
+}
+
+.button_generic:hover {
+  background: var(--teal-dark);
+}
+
+.button_svg {
+  background: none;
+}
+
+.button_svg:hover .button__icon {
+  filter: brightness(1.2);
+}
+
+.button_delete {
+  background: crimson;
+}
+
+.button_delete:hover {
+  background: red;
+}
+
+.button_center {
+  display: block;
+  margin: 1rem auto;
+}
