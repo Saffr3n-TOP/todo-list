@@ -1,3 +1,10 @@
+@import url('./cards.css');
+
 .main {
   grid-area: main;
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 16px;
+  background: var(--teal-lightest);
+  color: var(--teal-darkest);
+  overflow: auto;
 }

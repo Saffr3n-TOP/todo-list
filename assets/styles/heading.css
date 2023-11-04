@@ -4,5 +4,15 @@
 }
 
 .heading_primary {
+  margin: 1rem 0;
   font-size: 2rem;
+}
+
+.heading_secondary {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.heading_center {
+  text-align: center;
 }

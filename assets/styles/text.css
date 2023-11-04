@@ -1,0 +1,33 @@
+.text {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.text_small {
+  margin: 0.2rem 0;
+  font-size: 0.8rem;
+}
+
+.text_bold {
+  font-weight: bold;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.text_end {
+  text-align: end;
+}
+
+.text_green {
+  color: green;
+}
+
+.text_red {
+  color: red;
+}
+
+.text_orange {
+  color: #ff6900;
+}
