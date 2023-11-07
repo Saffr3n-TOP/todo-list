@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @param {'header' | 'nav' | 'main' | 'div' | 'span' | 'h1' | 'h2' | 'p' | 'a' | 'button' | 'img' | 'ul' | 'li' | 'form' | 'label' | 'input' | 'textarea' | 'select' | 'option'} tagName
+ * @param {'header' | 'nav' | 'main' | 'div' | 'span' | 'h1' | 'h2' | 'p' | 'a' | 'button' | 'img' | 'ul' | 'li' | 'form' | 'label' | 'input' | 'textarea' | 'select' | 'option' | 'hr'} tagName
  * @param {{
  *   children?: HTMLElement[],
  *   attributes?: { key: string, value: string }[],
