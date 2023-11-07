@@ -2,6 +2,7 @@
 import DB from '../db';
 import Todo from '../models/todo';
 import createElement from '../utils/createElement';
+import handleLinkClick from '../utils/handleLinkClick';
 import changePage from '../utils/changePage';
 
 import Card from './card';
@@ -34,12 +35,22 @@ function todoCollection(which) {
         todos
           .map((todo) => {
             const maxDate = new Date();
-            maxDate.setDate(maxDate.getDate() + (which === 'week' ? 6 : 0));
+            maxDate.setUTCDate(maxDate.getDate() + (which === 'week' ? 6 : 0));
+            maxDate.setUTCHours(0);
+            maxDate.setUTCMinutes(0);
+            maxDate.setUTCSeconds(0);
+            maxDate.setUTCMilliseconds(0);
+
+            const minDate = new Date();
+            minDate.setUTCHours(0);
+            minDate.setUTCMinutes(0);
+            minDate.setUTCSeconds(0);
+            minDate.setUTCMilliseconds(0);
 
             if (
               !which ||
               (+new Date(todo.due) <= +maxDate &&
-                +new Date(todo.due) >= +new Date())
+                +new Date(todo.due) >= +minDate)
             ) {
               return Card(todo, 'todo');
             }
@@ -126,18 +137,20 @@ function todoDocument(todoId) {
     })
   );
 
+  const minDate = new Date();
+  minDate.setUTCHours(0);
+  minDate.setUTCMinutes(0);
+  minDate.setUTCSeconds(0);
+  minDate.setUTCMilliseconds(0);
+
   const status = createElement('p', {
     className: `text text_small text_center text_bold text_${
-      todo.done
-        ? 'green'
-        : +new Date(todo.due) >= +new Date()
-        ? 'orange'
-        : 'red'
+      todo.done ? 'green' : +new Date(todo.due) >= +minDate ? 'orange' : 'red'
     }`,
     textContent: `(${
       todo.done
         ? 'Completed'
-        : +new Date(todo.due) >= +new Date()
+        : +new Date(todo.due) >= +minDate
         ? 'Ongoing'
         : 'Overdue'
     })`
@@ -163,7 +176,8 @@ function todoDocument(todoId) {
                 createElement('a', {
                   href: `./projects/${todo.projectId}`,
                   className: 'link',
-                  textContent: DB.getProject(todo.projectId).title
+                  textContent: DB.getProject(todo.projectId).title,
+                  onclick: handleLinkClick
                 })
               )
             ]
@@ -225,6 +239,10 @@ function todoDocument(todoId) {
     createElement('button', {
       className: 'button button_generic',
       textContent: 'Edit',
+      attributes: [
+        { key: 'aria-haspopup', value: 'true' },
+        { key: 'aria-expanded', value: 'false' }
+      ],
       onclick: () => {
         import('./form').then(({ default: Form, FormField }) => {
           const titleField = FormField('title', todo.title);
@@ -266,6 +284,10 @@ function todoDocument(todoId) {
     createElement('button', {
       className: 'button button_generic button_delete',
       textContent: 'Delete',
+      attributes: [
+        { key: 'aria-haspopup', value: 'true' },
+        { key: 'aria-expanded', value: 'false' }
+      ],
       onclick: () => {
         import('./form').then(({ default: Form }) => {
           const form = Form('DELETE', (e) => {
