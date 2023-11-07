@@ -63,7 +63,6 @@ export function FormField(name, value) {
     input = /** @type {HTMLSelectElement} */ (
       createElement('select', { required: true })
     );
-    if (value) input.value = /** @type {string} */ (value);
   }
 
   input.name = name;
@@ -94,7 +93,7 @@ export function FormField(name, value) {
       );
 
       input.append(optionLow, optionMedium, optionHigh);
-      input.value = 'medium';
+      input.value = /** @type {string} */ (value) || 'medium';
     } else {
       DB.getProjectsSorted().map((project) => {
         const option = /** @type {HTMLOptionElement} */ (
@@ -107,7 +106,9 @@ export function FormField(name, value) {
         input.appendChild(option);
       });
 
-      input.value = /** @type {HTMLOptionElement} */ (input.firstChild).value;
+      input.value =
+        /** @type {string} */ (value) ||
+        /** @type {HTMLOptionElement} */ (input.firstChild).value;
     }
   }
 
