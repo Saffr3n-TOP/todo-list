@@ -8,3 +8,9 @@
   color: var(--teal-darkest);
   overflow: auto;
 }
+
+.main__controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

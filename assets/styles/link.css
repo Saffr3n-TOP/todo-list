@@ -1,0 +1,9 @@
+.link {
+  color: var(--teal-darker);
+  font-weight: bold;
+}
+
+.link:hover {
+  color: var(--teal-dark);
+  text-decoration: none;
+}
