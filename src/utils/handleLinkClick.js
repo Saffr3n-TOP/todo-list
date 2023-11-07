@@ -6,7 +6,8 @@ export default function handleLinkClick(e) {
   e.preventDefault();
 
   const link = /** @type {HTMLAnchorElement} */ (e.currentTarget);
-  const origin = window.location.origin + '/';
+  let origin = window.location.origin + '/';
+  if (window.location.href.includes('todo-list')) origin += 'todo-list/';
   const [mainPath, subPath] = link.href.replace(origin, '').split('/');
 
   const activeLinkClass = 'nav__link_active';
