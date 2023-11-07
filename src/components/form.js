@@ -33,8 +33,11 @@ export default function Form(method, onsubmit, ...children) {
   return form;
 }
 
-/** @param {'title' | 'description' | 'priority' | 'done' | 'due' | 'project'} name */
-export function FormField(name) {
+/**
+ * @param {'title' | 'description' | 'priority' | 'done' | 'due' | 'project'} name
+ * @param {string | boolean} [value]
+ */
+export function FormField(name, value) {
   /** @type {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} */
   let input;
 
@@ -42,20 +45,25 @@ export function FormField(name) {
     input = /** @type {HTMLInputElement} */ (
       createElement('input', { type: 'text', required: true })
     );
+    if (value) input.value = /** @type {string} */ (value);
   } else if (name === 'due') {
     input = /** @type {HTMLInputElement} */ (
       createElement('input', { type: 'date', required: true })
     );
+    if (value) input.value = /** @type {string} */ (value);
   } else if (name === 'done') {
     input = /** @type {HTMLInputElement} */ (
       createElement('input', { type: 'checkbox' })
     );
+    if (value) input.checked = /** @type {boolean} */ (value);
   } else if (name === 'description') {
     input = /** @type {HTMLTextAreaElement} */ (createElement('textarea', {}));
+    if (value) input.value = /** @type {string} */ (value);
   } else {
     input = /** @type {HTMLSelectElement} */ (
       createElement('select', { required: true })
     );
+    if (value) input.value = /** @type {string} */ (value);
   }
 
   input.name = name;
